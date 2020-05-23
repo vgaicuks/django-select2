@@ -148,8 +148,12 @@ class TestSelect2MixinSettings:
     def test_default_media(self):
         sut = Select2Widget()
         result = sut.media.render()
-        assert f'https://cdnjs.cloudflare.com/ajax/libs/select2/{settings.SELECT2_LIB_VERSION}/js/select2.min.js' in result
-        assert f'https://cdnjs.cloudflare.com/ajax/libs/select2/{settings.SELECT2_LIB_VERSION}/css/select2.min.css' in result
+        assert (
+            f'https://cdnjs.cloudflare.com/ajax/libs/select2/{settings.SELECT2_LIB_VERSION}/js/select2.min.js'
+        ) in result
+        assert (
+            f'https://cdnjs.cloudflare.com/ajax/libs/select2/{settings.SELECT2_LIB_VERSION}/css/select2.min.css'
+        ) in result
         assert 'django_select2/django_select2.js' in result
 
     def test_js_setting(self, settings):
@@ -479,7 +483,9 @@ class TestAddressChainedSelect2Widget:
         WebDriverWait(driver, 60).until(
             expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '.select2-selection--single'))
         )
-        country_container, city_container, city2_container = driver.find_elements_by_css_selector('.select2-selection--single')
+        country_container, city_container, city2_container = driver.find_elements_by_css_selector(
+            '.select2-selection--single'
+        )
 
         # clicking city select2 lists all available cities
         city_container.click()
@@ -532,7 +538,9 @@ class TestAddressChainedSelect2Widget:
 
     def test_dependent_fields_clear_after_change_parent(self, db, live_server, driver, countries, cities):
         driver.get(live_server + self.url)
-        country_container, city_container, city2_container = driver.find_elements_by_css_selector('.select2-selection--single')
+        country_container, city_container, city2_container = driver.find_elements_by_css_selector(
+            '.select2-selection--single'
+        )
 
         # selecting a country really does it
         country_container.click()

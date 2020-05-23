@@ -11,7 +11,7 @@ Install ``django-select2``
 
 Add ``django_select2`` to your ``INSTALLED_APPS`` in your project settings.
 
-Add ``django_select`` to your urlconf if you use any "Auto" fields.
+Add ``django_select`` to your URL root configuration:
 
 .. code-block:: python
 
