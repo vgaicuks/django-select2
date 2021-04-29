@@ -1636,9 +1636,10 @@ the specific language governing permissions and limitations under the Apache Lic
                 more = results.find("li.select2-more-results"),
                 below, // pixels the element is below the scroll fold, below==0 is when the element is starting to be visible
                 page = this.resultsPage + 1,
-                self=this,
-                term=this.search.val(),
-                context=this.context;
+                self = this,
+                term = this.search.val(),
+                // context=this.context;
+                context = null;
 
             if (more.length === 0) return;
             below = more.offset().top - results.offset().top - results.height();
